@@ -1,8 +1,9 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {movieRequests} from "../../api";
+import {createSlice} from "@reduxjs/toolkit";
+
 
 let initialState = {
     movies: [],
+    top_rated:[],
     prev: null,
     next: null
 };

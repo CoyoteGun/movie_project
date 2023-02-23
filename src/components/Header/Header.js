@@ -11,6 +11,12 @@ export const Header = () => {
                 <NavLink className={'links'} to={'something'}>Something</NavLink>
             </div>
             <div className={'header_right'}>
+                {/*<div className="page">*/}
+                {/*    <input type="checkbox" id="themeSwitch" name="theme-switch" className="theme-switch__input"/>*/}
+                {/*    <label htmlFor="themeSwitch" className="theme-switch__label">*/}
+                {/*        <span>Switch theme</span>*/}
+                {/*    </label>*/}
+                {/*</div>*/}
                 <div className={'user__prof'}>
                     <p>UA</p>
                 </div>

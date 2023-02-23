@@ -1,30 +1,20 @@
-import {useNavigate, useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
+import {baseImgURL, movieRequests} from "../../api";
+import {movieActions} from "../../redux";
+import {useNavigate} from "react-router-dom";
 import {BiSearch} from "react-icons/bi";
 
-import './MovieList.css';
-
-import {movieActions} from "../../redux";
-import {baseImgURL, movieRequests} from "../../api";
-
-export const MoviesList = () => {
+export const TopRated = () => {
 
     const navigate = useNavigate();
 
-    const {movies, prev, next} = useSelector(state => state.movies);
-
+    const {movies} = useSelector(state => state.movies);
     const dispatch = useDispatch();
 
-    const [query, setQuery] = useSearchParams({page:'1'});
-
-    // useEffect(() => {
-    //     dispatch(movieActions.getMovies({page:query.get('page')}))
-    // }, [dispatch, query]);
-
     useEffect(() => {
-        movieRequests.getAll().then(({data}) => dispatch(movieActions.getMovies(data.results)))
-    },[dispatch, query])
+        movieRequests.getTopRated(1).then(({data}) => dispatch(movieActions.getMovies(data.results)))
+    },[dispatch])
 
     return (
         <div>
@@ -45,8 +35,8 @@ export const MoviesList = () => {
                 })}
             </div>
             <div>
-                <button  disabled={!prev} onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
-                <button  disabled={!next} onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
+                {/*<button  disabled={!prev} onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>*/}
+                {/*<button  disabled={!next} onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>*/}
             </div>
         </div>
     );
