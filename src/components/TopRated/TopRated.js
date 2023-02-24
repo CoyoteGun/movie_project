@@ -13,7 +13,7 @@ export const TopRated = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        movieRequests.getTopRated(1).then(({data}) => dispatch(movieActions.getMovies(data.results)))
+         dispatch(movieActions.getTopMovies())
     },[dispatch])
 
     return (

@@ -1,9 +1,11 @@
 import {Route, Routes} from "react-router-dom";
 
 import './App.css';
+
 import {MainLayout} from "./layouts";
 import {MoviesPage} from "./pages/MoviesPage";
-import {MoviesListCard, TopRated} from "./components";
+import {Genres, MoviesListCard, TopRated} from "./components";
+
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
                 <Route index element={<MoviesPage/>}/>
                 <Route path={'movie/:id'} element={<MoviesListCard/>}/>
                 <Route path={'top_rated'} element={<TopRated/>}/>
-                <Route path={'something'} element={<h2>2</h2>}/>
+                <Route path={'genres'} element={<Genres/>}/>
 
             </Route>
 

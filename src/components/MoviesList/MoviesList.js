@@ -18,13 +18,8 @@ export const MoviesList = () => {
 
     const [query, setQuery] = useSearchParams({page:'1'});
 
-    // useEffect(() => {
-    //     dispatch(movieActions.getMovies({page:query.get('page')}))
-    // }, [dispatch, query]);
-
     useEffect(() => {
-        // movieRequests.getAll().then(({data}) => dispatch(movieActions.getMovies(data.results)))
-        dispatch(movieActions.getMovies())
+        dispatch(movieActions.getMovies({page:query.get('page')}))
     },[dispatch, query])
 
 
@@ -32,9 +27,8 @@ export const MoviesList = () => {
 
     const searchMovie = (query) => {
         if (query) {
-            movieRequests.search(query).then(result => {
-                dispatch(movieActions.getMovies(result.data.results))
-            });
+            movieRequests.search(query).then(({data}) => dispatch(movieActions.getSearchMovies(data.results))
+            )
         }
     };
 

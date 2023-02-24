@@ -21,7 +21,7 @@
 /*    font-weight: 700;*/
 /*}*/
 
-a {
+.links {
     text-decoration: none;
     color: #ffffff;
     padding: 5px 0;
@@ -30,7 +30,7 @@ a {
     font-size: 1.5rem;
 }
 
-a:after{
+.links:after{
     content: '';
     position: absolute;
     bottom: 0;
@@ -42,14 +42,13 @@ a:after{
     background-color: #ffffff;
 }
 
-a.active::after, :hover::after {
+.links.active::after, :hover::after {
     width: 100%;
 }
 
 .links:nth-child(1){
     font-size: 40px;
-    /*background-color: #ff6a03;*/
-    /*border-radius: 15px;*/
+    color: #f66b05;
 }
 .header_right{
     width: 10%;

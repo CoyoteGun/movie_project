@@ -1,0 +1,24 @@
+.genres{
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.genres_block{
+    width: 120px;
+    padding: 10px;
+    border: 2px solid #45f3ff;
+    border-radius: 50px;
+    margin: 10px;
+    text-align: center;
+}
+
+.genre_links{
+    text-decoration: none;
+    color: #45f3ff;
+
+}

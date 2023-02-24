@@ -2,6 +2,8 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import StarRatings from "react-star-ratings/build/star-ratings";
 
+import './MoviesListCard.css';
+
 import {baseImgURL, movieRequests} from "../../api";
 
 
