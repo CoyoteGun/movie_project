@@ -16,7 +16,6 @@ export const MoviesListCard = () => {
     useEffect(() => {
         if (id) {
             movieRequests.getMovieById(id).then(({data}) => {
-                console.log(data);
                 if (data) return setCard(data)
             })
         }
@@ -33,6 +32,16 @@ export const MoviesListCard = () => {
                 starSpacing="5px"
             />
             {card.title}
+
+            {card.genres && card.genres.map(item => {
+                const {name} = item;
+
+                return (
+                    <div key={id} className={'image_block'}>
+                        <button>{name}</button>
+                    </div>
+                )
+            })}
 
             <div>
                 <div className={'img_block'}>

@@ -51,8 +51,8 @@ export const MoviesList = () => {
                 })}
             </div>
             <div>
-                <button  disabled={!prev} onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
-                <button  disabled={!next} onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
+                <button  onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
+                <button  onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
             </div>
         </div>
     );

@@ -33,33 +33,38 @@ const getTopMovies = createAsyncThunk(
 );
 
 const movieSlice = createSlice({
-   name: 'movieSlice',
-   initialState,
+    name: 'movieSlice',
+    initialState,
     reducers:{
-       getSearchMovies: (state,action) => {
-           state.movies =action.payload
-       }
+        getSearchMovies: (state,action) => {
+            state.movies =action.payload
+        },
+        getMoviesByGenreId: (state, action) => {
+            state.movies = action.payload
+        },
+
     },
     extraReducers: builder =>
         builder
-        .addCase(getMovies.fulfilled, (state, action) => {
-            const {results, prev, next} = action.payload;
-            state.movies = results
-            state.prev = prev
-            state.next = next
-        })
+            .addCase(getMovies.fulfilled, (state, action) => {
+                const {results, prev, next} = action.payload;
+                state.movies = results
+                state.prev = prev
+                state.next = next
+            })
             .addCase(getTopMovies.fulfilled, (state, action) => {
-            const {results} = action.payload;
-            state.movies = results
-        })
+                const {results} = action.payload;
+                state.movies = results
+            })
 });
 
-const {reducer:movieReducer, actions:{getSearchMovies}} = movieSlice;
+const {reducer:movieReducer, actions:{getSearchMovies, getMoviesByGenreId}} = movieSlice;
 
 const movieActions = {
     getMovies,
     getTopMovies,
-    getSearchMovies
+    getSearchMovies,
+    getMoviesByGenreId
 };
 
 export {
