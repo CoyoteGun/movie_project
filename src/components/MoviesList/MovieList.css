@@ -16,6 +16,7 @@
     cursor: pointer;
     padding-left: 20px;
     font-size: 21px;
+    color: white;
 }
 .search_input:focus {
     outline: none;
@@ -33,4 +34,20 @@
 }
 .icon:hover {
     color: rgb(162, 163, 163);
+}
+/*===================================================*/
+.movies_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+/*===================================================*/
+.search_block{
+    width: 90%;
+}
+.image{
+    width: 350px;
+    height: 500px;
+}
+.image_block {
+
 }
