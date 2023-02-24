@@ -23,7 +23,8 @@ export const MoviesList = () => {
     // }, [dispatch, query]);
 
     useEffect(() => {
-        movieRequests.getAll().then(({data}) => dispatch(movieActions.getMovies(data.results)))
+        // movieRequests.getAll().then(({data}) => dispatch(movieActions.getMovies(data.results)))
+        dispatch(movieActions.getMovies())
     },[dispatch, query])
 
 
