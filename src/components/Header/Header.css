@@ -66,6 +66,9 @@
     color: #ffffff;
     font-size: 15px;
     text-align: center;
+    background: rgb(255,248,0);
+    background: linear-gradient(0deg, rgba(255,248,0,1) 16%, rgba(45,147,253,1) 89%);
+    cursor: pointer;
 }
 
 

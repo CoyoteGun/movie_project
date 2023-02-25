@@ -23,6 +23,7 @@ export const MoviesListCard = () => {
 
     return (
         <div className={'card_block'}>
+            {card.title}
             <StarRatings
                 rating={card.vote_average}
                 starRatedColor="gold"
@@ -31,14 +32,12 @@ export const MoviesListCard = () => {
                 starDimension="20px"
                 starSpacing="5px"
             />
-            {card.title}
-
             {card.genres && card.genres.map(item => {
                 const {name} = item;
 
                 return (
                     <div key={id} className={'image_block'}>
-                        <button>{name}</button>
+                        <button className={'badge'}>{name}</button>
                     </div>
                 )
             })}

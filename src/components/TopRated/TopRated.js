@@ -1,9 +1,13 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {baseImgURL, movieRequests} from "../../api";
-import {movieActions} from "../../redux";
 import {useNavigate} from "react-router-dom";
+
 import {BiSearch} from "react-icons/bi";
+import StarRatings from "react-star-ratings/build/star-ratings";
+
+import {baseImgURL} from "../../api";
+import {movieActions} from "../../redux";
+
 
 export const TopRated = () => {
 
@@ -24,10 +28,18 @@ export const TopRated = () => {
             </div>
             <div className={'comment_block'}>
                 {movies && movies.map(item => {
-                    const {id, poster_path} = item;
+                    const {id, poster_path, vote_average} = item;
 
                     return (
                         <div key={id} className={'comment_content'}>
+                            <StarRatings
+                                rating={vote_average}
+                                starRatedColor="gold"
+                                numberOfStars={10}
+                                name='rating'
+                                starDimension="20px"
+                                starSpacing="5px"
+                            />
                             <img src={`${baseImgURL}${poster_path}`} alt="-_-"/>
                             <button onClick={() => navigate(`movie/${id}`)}>More Info</button>
                         </div>

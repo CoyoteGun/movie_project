@@ -1,0 +1,10 @@
+.badge {
+    font-size: 4rem;
+
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: #45f3ff;
+    border: #45f3ff 0.125em solid;
+    padding: 0.25em 1em;
+}
