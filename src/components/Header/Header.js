@@ -1,8 +1,10 @@
 import {NavLink} from "react-router-dom";
 
 import './Header.css';
+import {ThemeToggle} from "../ThemeToggle/ThemeToggle";
 
 export const Header = () => {
+
     return (
         <div className={'header_block'}>
             <div className={'header_left'}>
@@ -11,12 +13,7 @@ export const Header = () => {
                 <NavLink className={'links'} to={'genres'}>By Genres</NavLink>
             </div>
             <div className={'header_right'}>
-                {/*<div className="page">*/}
-                {/*    <input type="checkbox" id="themeSwitch" name="theme-switch" className="theme-switch__input"/>*/}
-                {/*    <label htmlFor="themeSwitch" className="theme-switch__label">*/}
-                {/*        <span>Switch theme</span>*/}
-                {/*    </label>*/}
-                {/*</div>*/}
+              <ThemeToggle/>
                 <div className={'user__prof'}>
                     <p>UA</p>
                 </div>
