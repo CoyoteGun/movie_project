@@ -1,10 +1,11 @@
 import {Genres, MoviesList} from "../components";
+import {Fragment} from "react";
 
 export const MoviesPage = () => {
     return (
-        <div>
+        <Fragment>
             <Genres/>
             <MoviesList/>
-        </div>
+        </Fragment>
     );
 };

@@ -12,24 +12,20 @@ export const MoviesList = () => {
 
     const navigate = useNavigate();
 
-    const {movies, prev, next} = useSelector(state => state.movies);
+    const {movies} = useSelector(state => state.movies);
 
     const dispatch = useDispatch();
 
-    const [query, setQuery] = useSearchParams({page:'1'});
-
-    useEffect(() => {
-        dispatch(movieActions.getMovies({page:query.get('page')}))
-    },[dispatch, query])
-
+    const [query, setQuery] = useSearchParams({page: '1'});
 
     const [searchValue, setSearchValue] = useState('');
 
+    useEffect(() => {
+        dispatch(movieActions.getMovies({page: query.get('page')}))
+    }, [dispatch, query])
+
     const searchMovie = (query) => {
-        if (query) {
-            movieRequests.search(query).then(({data}) => dispatch(movieActions.getSearchMovies(data.results))
-            )
-        }
+        if (query) movieRequests.search(query).then(({data}) => dispatch(movieActions.getSearchMovies(data.results)));
     };
 
     return (
@@ -44,15 +40,16 @@ export const MoviesList = () => {
 
                     return (
                         <div key={id} className={'image_block'}>
-                            <img className={'image'} src={`${baseImgURL}${poster_path}`} alt="-_-"/>
+                            <img className={'image'} src={`${baseImgURL}${poster_path}`} alt="Movie title"/>
+                            <br/>
                             <button className={'info_btn'} onClick={() => navigate(`movie/${id}`)}>More Info</button>
                         </div>
                     )
                 })}
             </div>
-            <div>
-                <button  onClick={()=>setQuery(query=>({page:+query.get('page')-1}))}>prev</button>
-                <button  onClick={()=>setQuery(query=>({page:+query.get('page')+1}))}>next</button>
+            <div className={'pagination_buttons'}>
+                <button onClick={() => setQuery(query => ({page: +query.get('page') - 1}))}>prev</button>
+                <button onClick={() => setQuery(query => ({page: +query.get('page') + 1}))}>next</button>
             </div>
         </div>
     );

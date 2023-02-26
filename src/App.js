@@ -12,29 +12,25 @@ export const ThemeContext = React.createContext({});
 
 function App() {
 
-
-
     const [theme, setTheme] = useState("dark");
 
-  return (
-      <ThemeContext.Provider value={{theme, setTheme}}>
-    <div className="App">
+    return (
+        <ThemeContext.Provider value={{theme, setTheme}}>
+            <div className="App">
 
-        <Routes>
+                <Routes>
 
-            <Route path={'/'} element={<MainLayout/>}>
+                    <Route path={'/'} element={<MainLayout/>}>
+                        <Route index element={<MoviesPage/>}/>
+                        <Route path={'movie/:id'} element={<MoviesListCard/>}/>
+                        <Route path={'top_rated'} element={<TopRated/>}/>
+                        <Route path={'genres'} element={<Genres/>}/>
+                    </Route>
 
-                <Route index element={<MoviesPage/>}/>
-                <Route path={'movie/:id'} element={<MoviesListCard/>}/>
-                <Route path={'top_rated'} element={<TopRated/>}/>
-                <Route path={'genres'} element={<Genres/>}/>
-
-            </Route>
-
-        </Routes>
-    </div>
-       </ThemeContext.Provider>
-  );
+                </Routes>
+            </div>
+        </ThemeContext.Provider>
+    );
 }
 
 export {App};

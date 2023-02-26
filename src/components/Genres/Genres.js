@@ -17,7 +17,7 @@ export const Genres = () => {
     }, [dispatch])
 
     const getMoviesByGenreId = (id) => {
-        let arr = [];
+        const arr = [];
         movieRequests.getAll(1).then((allMovies) => {
             allMovies.data.results.map((res) => {
                 if (res['genre_ids'].includes(id)) {

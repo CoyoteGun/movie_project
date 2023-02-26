@@ -10,7 +10,7 @@ export const MainLayout = () => {
 
     const headerStyle = {
         dark: {
-            backgroundColor: 'black',
+            backgroundImage: 'https://wallpaperaccess.com/full/2773237.jpg',
             color: 'white'
         },
         light: {
